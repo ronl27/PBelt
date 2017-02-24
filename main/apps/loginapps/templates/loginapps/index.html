@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    {%load staticfiles%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{%static 'js/main.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="/static/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/static/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="/static/stylesheet.css">
+  </head>
+  <body>
+    {%if messages%}
+    <ul>
+      {%for msg in messages%}
+      <li>{{msg}}</li>
+      {%endfor%}
+    </ul>
+    {%endif%}
+    <div class="registration">
+      <!-- REGIRTRATION  -->
+      <h1>Register here:</h1>
+      <form class="" action="/register" method="post">
+        {% csrf_token %}
+        <label> <h2>First Name:</h2><input type="text" name="first_name" value=""></label>
+
+        <label> <h2>Last Name:</h2><input type="text" name="last_name" value=""></label>
+
+        <label><h2>Email:</h2><input type="text" name="email" value=""></label>
+
+        <label><h2>Password:</h2><input type="password" name="password" value=""></label>
+
+        <label><h2>Confirm Password:</h2><input type="password" name="confirm" value=""></label>
+        <!-- Confirm password -->
+
+        <input type="submit" name="button" value="Register">
+      </form>
+    </div>
+      <!-- LOGIN AREA -->
+      <div class="login">
+        <h1>Login:</h1>
+        <form class="" action="/login" method="post">
+          {% csrf_token %}
+          <label><h3>Email:</h3><input type="text" name="email" value=""></label>
+
+          <label><h3>Password</h3><input type="password" name="password" value=""></label>
+          <input type="submit" name="button" value="Log In">
+        </form>
+      </div>
+  </body>
+</html>

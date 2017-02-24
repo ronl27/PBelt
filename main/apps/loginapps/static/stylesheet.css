@@ -1,0 +1,10 @@
+h1 {
+    /*text-decoration: underline;*/
+    color:white;
+    background-color: purple;
+}
+.container{
+    height: 100%;
+    width: 980px;
+    margin: 100px;
+}
